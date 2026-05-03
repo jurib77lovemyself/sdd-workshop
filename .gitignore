@@ -7,3 +7,16 @@ Thumbs.db
 
 d01/
 .vscode/
+
+# Python specific
+*.pyc
+venv/
+dist/
+*.egg-info/
+
+# Project specific
+*.db
+.pytest_cache/
+
+.coverage
+uv.lock
