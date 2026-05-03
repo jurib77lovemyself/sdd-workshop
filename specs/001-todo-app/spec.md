@@ -5,6 +5,12 @@
 **Status**: Draft  
 **Input**: CLI 기반의 ToDo관리 앱을 만들고 싶어요. 사용자: 터미널을 사용하는 개인 개발자. 주요기능: 1. TODo 항목추가(제목 필수, 마감일 선택, 우선순위 선택) 2. 전체 목록 조회(완료/미완료/우선순위로 필터링 가능) 3. 항목 완료 처리(항목 ID로 완료 표시) 4. 항목 삭제(항목 ID로 삭제). 기술스택은 아직 미정.
 
+## Clarifications
+
+### Session 2026-05-03
+
+- Q: `description` 필드를 ToDo 항목에 추가해야 하나요? → A: 제목 + 선택 설명
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - ToDo 항목 추가 (Priority: P1)
@@ -96,7 +102,7 @@
 - **Todo Item**: 사용자의 작업 항목을 나타내며, 다음 속성을 포함한다:
   - `id`: 고유 식별자 (필수)
   - `title`: 작업 제목 (필수)
-  - `description` [NEEDS CLARIFICATION: 항목 설명을 추가할 지 여부]
+  - `description`: 작업 상세 설명 (선택)
   - `dueDate`: 마감일 (선택)
   - `priority`: 우선순위 (선택) - "높음", "중간", "낮음" 수준
   - `completed`: 완료 상태 (필수, 기본값: false)
