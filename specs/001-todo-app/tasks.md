@@ -31,11 +31,11 @@ Single project structure at repository root:
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project directories in `todo_lib/`, `cli/`, `tests/`
-- [ ] T002 Create `pyproject.toml` with Python 3.12, typer, sqlalchemy, pytest, pytest-cov dependencies
-- [ ] T003 Create `.gitignore` to exclude `*.db`, `.pytest_cache/`, `__pycache__/`, `*.egg-info/`
-- [ ] T004 Create `todo_lib/__init__.py` and `cli/__init__.py` (empty modules)
-- [ ] T005 Create `tests/conftest.py` with pytest fixtures for temporary SQLite test database
+- [X] T001 Create project directories in `todo_lib/`, `cli/`, `tests/`
+- [X] T002 Create `pyproject.toml` with Python 3.12, typer, sqlalchemy, pytest, pytest-cov dependencies
+- [X] T003 Create `.gitignore` to exclude `*.db`, `.pytest_cache/`, `__pycache__/`, `*.egg-info/`
+- [X] T004 Create `todo_lib/__init__.py` and `cli/__init__.py` (empty modules)
+- [X] T005 Create `tests/conftest.py` with pytest fixtures for temporary SQLite test database
 
 ---
 
@@ -43,9 +43,9 @@ Single project structure at repository root:
 
 **Purpose**: Data model and storage layer foundation for all user stories
 
-- [ ] T006 [P] Create `todo_lib/models.py` with TodoItem SQLAlchemy ORM class (id, title, description, due_date, priority, completed, created_at, updated_at)
-- [ ] T007 [P] Create `todo_lib/storage.py` with SQLiteStorage class (init, create_todo, get_todo_by_id, get_all_todos, update_todo, delete_todo, filter_by_completion, filter_by_priority)
-- [ ] T008 Write integration test in `tests/test_storage_integration.py` to verify SQLite database operations (create, read, update, delete, filter)
+- [X] T006 [P] Create `todo_lib/models.py` with TodoItem SQLAlchemy ORM class (id, title, description, due_date, priority, completed, created_at, updated_at)
+- [X] T007 [P] Create `todo_lib/storage.py` with SQLiteStorage class (init, create_todo, get_todo_by_id, get_all_todos, update_todo, delete_todo, filter_by_completion, filter_by_priority)
+- [X] T008 Write integration test in `tests/test_storage_integration.py` to verify SQLite database operations (create, read, update, delete, filter)
 
 ---
 
@@ -60,12 +60,12 @@ Single project structure at repository root:
 - TC-US1-002: Add todo with all fields → all fields stored
 - TC-US1-003: Add todo without title → error message (no item created)
 
-- [ ] T009 [US1] Write test in `tests/test_add.py` for add_todo() function with title parameter
-- [ ] T010 [US1] Write test in `tests/test_add.py` for add_todo() with optional due_date and priority parameters
-- [ ] T011 [US1] Write test in `tests/test_add.py` for add_todo() error handling (missing title)
-- [ ] T012 [P] [US1] Create `todo_lib/service.py` with TodoService class and add_todo() method
-- [ ] T013 [P] [US1] Create `cli/main.py` with typer.Typer() app and add_command() using TodoService.add_todo()
-- [ ] T014 [US1] Integration test: Execute `todo add "Test task" --due 2026-05-10 --priority high` and verify output contains ID and confirmation
+- [X] T009 [US1] Write test in `tests/test_add.py` for add_todo() function with title parameter
+- [X] T010 [US1] Write test in `tests/test_add.py` for add_todo() with optional due_date and priority parameters
+- [X] T011 [US1] Write test in `tests/test_add.py` for add_todo() error handling (missing title)
+- [X] T012 [P] [US1] Create `todo_lib/service.py` with TodoService class and add_todo() method
+- [X] T013 [P] [US1] Create `cli/main.py` with typer.Typer() app and add_command() using TodoService.add_todo()
+- [X] T014 [US1] Integration test: Execute `todo add "Test task" --due 2026-05-10 --priority high` and verify output contains ID and confirmation
 
 ---
 
@@ -81,13 +81,13 @@ Single project structure at repository root:
 - TC-US2-003: List only high-priority items when --priority high applied
 - TC-US2-004: Combine filters (pending + high priority)
 
-- [ ] T015 [US2] Write test in `tests/test_list.py` for list_todos() without filters
-- [ ] T016 [P] [US2] Write test in `tests/test_list.py` for list_todos() with completion filter (done/pending)
-- [ ] T017 [P] [US2] Write test in `tests/test_list.py` for list_todos() with priority filter
-- [ ] T018 [P] [US2] Write test in `tests/test_list.py` for list_todos() with combined filters
-- [ ] T019 [US2] Implement TodoService.list_todos(filter_status=None, filter_priority=None) in `todo_lib/service.py`
-- [ ] T020 [US2] Implement list_command() in `cli/main.py` with --filter and --priority options
-- [ ] T021 [US2] Integration test: Run `todo list --filter pending --priority high` and verify output format and filtering
+- [X] T015 [US2] Write test in `tests/test_list.py` for list_todos() without filters
+- [X] T016 [P] [US2] Write test in `tests/test_list.py` for list_todos() with completion filter (done/pending)
+- [X] T017 [P] [US2] Write test in `tests/test_list.py` for list_todos() with priority filter
+- [X] T018 [P] [US2] Write test in `tests/test_list.py` for list_todos() with combined filters
+- [X] T019 [US2] Implement TodoService.list_todos(filter_status=None, filter_priority=None) in `todo_lib/service.py`
+- [X] T020 [US2] Implement list_command() in `cli/main.py` with --filter and --priority options
+- [X] T021 [US2] Integration test: Run `todo list --filter pending --priority high` and verify output format and filtering
 
 ---
 
@@ -102,12 +102,12 @@ Single project structure at repository root:
 - TC-US3-002: Mark already-done item → no change, success message
 - TC-US3-003: Mark non-existent ID → error message
 
-- [ ] T022 [US3] Write test in `tests/test_done.py` for mark_done() on pending item
-- [ ] T023 [P] [US3] Write test in `tests/test_done.py` for mark_done() on already-completed item (idempotent)
-- [ ] T024 [P] [US3] Write test in `tests/test_done.py` for mark_done() error handling (invalid ID)
-- [ ] T025 [US3] Implement TodoService.mark_done(todo_id) in `todo_lib/service.py`
-- [ ] T026 [US3] Implement done_command() in `cli/main.py` to call TodoService.mark_done()
-- [ ] T027 [US3] Integration test: Run `todo done 1` and verify todo item status is updated to completed
+- [X] T022 [US3] Write test in `tests/test_done.py` for mark_done() on pending item
+- [X] T023 [P] [US3] Write test in `tests/test_done.py` for mark_done() on already-completed item (idempotent)
+- [X] T024 [P] [US3] Write test in `tests/test_done.py` for mark_done() error handling (invalid ID)
+- [X] T025 [US3] Implement TodoService.mark_done(todo_id) in `todo_lib/service.py`
+- [X] T026 [US3] Implement done_command() in `cli/main.py` to call TodoService.mark_done()
+- [X] T027 [US3] Integration test: Run `todo done 1` and verify todo item status is updated to completed
 
 ---
 
@@ -121,11 +121,11 @@ Single project structure at repository root:
 - TC-US4-001: Delete existing item → item removed from storage
 - TC-US4-002: Delete non-existent ID → error message
 
-- [ ] T028 [US4] Write test in `tests/test_delete.py` for delete_todo() on existing item
-- [ ] T029 [P] [US4] Write test in `tests/test_delete.py` for delete_todo() error handling (invalid ID)
-- [ ] T030 [US4] Implement TodoService.delete_todo(todo_id) in `todo_lib/service.py`
-- [ ] T031 [US4] Implement delete_command() in `cli/main.py` to call TodoService.delete_todo()
-- [ ] T032 [US4] Integration test: Run `todo delete 1` and verify todo item is removed from list
+- [X] T028 [US4] Write test in `tests/test_delete.py` for delete_todo() on existing item
+- [X] T029 [P] [US4] Write test in `tests/test_delete.py` for delete_todo() error handling (invalid ID)
+- [X] T030 [US4] Implement TodoService.delete_todo(todo_id) in `todo_lib/service.py`
+- [X] T031 [US4] Implement delete_command() in `cli/main.py` to call TodoService.delete_todo()
+- [X] T032 [US4] Integration test: Run `todo delete 1` and verify todo item is removed from list
 
 ---
 
@@ -133,16 +133,16 @@ Single project structure at repository root:
 
 **Purpose**: Error handling, edge cases, documentation, and quality assurance
 
-- [ ] T033 Add input validation in `todo_lib/service.py` (title length, priority enum, date format)
-- [ ] T034 Add human-readable error messages in `cli/main.py` for all error scenarios
-- [ ] T035 Write test in `tests/test_edge_cases.py` for long title (1000+ characters)
-- [ ] T036 Write test in `tests/test_edge_cases.py` for empty database list query
-- [ ] T037 Write test in `tests/test_edge_cases.py` for past due_date handling
-- [ ] T038 Run full test suite with coverage: `pytest --cov=todo_lib --cov=cli tests/`
-- [ ] T039 Verify coverage meets minimum 80% threshold
-- [ ] T040 Create CLI help documentation via Typer auto-help (e.g., `todo --help`)
-- [ ] T041 Create quickstart verification script: Run all 4 CLI commands and verify expected behavior
-- [ ] T042 Verify Constitution compliance: No abstract interfaces, test-first approach, minimal dependencies, SQLite persistence, CLI only
+- [X] T033 Add input validation in `todo_lib/service.py` (title length, priority enum, date format)
+- [X] T034 Add human-readable error messages in `cli/main.py` for all error scenarios
+- [X] T035 Write test in `tests/test_edge_cases.py` for long title (1000+ characters)
+- [X] T036 Write test in `tests/test_edge_cases.py` for empty database list query
+- [X] T037 Write test in `tests/test_edge_cases.py` for past due_date handling
+- [X] T038 Run full test suite with coverage: `pytest --cov=todo_lib --cov=cli tests/`
+- [X] T039 Verify coverage meets minimum 80% threshold
+- [X] T040 Create CLI help documentation via Typer auto-help (e.g., `todo --help`)
+- [X] T041 Create quickstart verification script: Run all 4 CLI commands and verify expected behavior
+- [X] T042 Verify Constitution compliance: No abstract interfaces, test-first approach, minimal dependencies, SQLite persistence, CLI only
 
 ---
 

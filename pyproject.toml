@@ -1,0 +1,28 @@
+[project]
+name = "todo-app"
+version = "0.1.0"
+description = "CLI ToDo Management App"
+requires-python = ">=3.12"
+dependencies = [
+    "typer",
+    "sqlalchemy",
+    "pytest",
+    "pytest-cov",
+]
+
+[project.scripts]
+todo = "cli.main:app"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["todo_lib", "cli"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=todo_lib --cov=cli"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["todo_lib", "cli"]
